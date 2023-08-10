@@ -1,3 +1,5 @@
+## v3.0.0-alpha.6 (2023-08-10)
+
 ## v3.0.0-alpha.5 (2023-08-10)
 
 # Ember CLI Mirage Change log
