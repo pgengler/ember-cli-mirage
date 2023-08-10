@@ -10,11 +10,10 @@ import { assert } from '@ember/debug';
   @hide
 */
 export default function startMirage(owner, { env, makeServer } = {}) {
+  if (!owner) {
+    throw new Error('You must pass `owner` to startMirage()');
+  }
   if (!env || !makeServer) {
-    if (!owner) {
-      throw new Error('You must pass `owner` to startMirage()');
-    }
-
     env = env || owner.resolveRegistration('config:environment');
 
     // These are set from `<app>/initializers/ember-cli-mirage`
@@ -41,7 +40,7 @@ export default function startMirage(owner, { env, makeServer } = {}) {
     makeServer.length > 0
   );
 
-  let server = makeServer(options);
+  let server = makeServer(options, owner);
   if (
     typeof location !== 'undefined' &&
     location.search.indexOf('mirageLogging') !== -1

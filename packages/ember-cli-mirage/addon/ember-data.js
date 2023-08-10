@@ -62,7 +62,7 @@ export function getDsModels() {
  * @method discoverEmberDataModels
  * @return {Object} models
  */
-export function discoverEmberDataModels() {
+export function discoverEmberDataModels(owner) {
   if (Models) {
     return Models;
   }
@@ -70,17 +70,21 @@ export function discoverEmberDataModels() {
   let emberDataModels = getDsModels();
   Models = {};
 
+  let store = owner.lookup('service:store');
+  let schemaService = store.schema;
+
   Object.keys(emberDataModels).forEach((modelName) => {
     let model = emberDataModels[modelName];
+    let relationshipDefinitions = schemaService.relationshipsDefinitionFor({ type: modelName });
     let attrs = {};
 
-    model.eachRelationship((name, r) => {
+    for (let [name, r] of Object.entries(relationshipDefinitions)) {
       if (r.kind === 'belongsTo') {
         attrs[name] = belongsTo(r.type, r.options);
       } else if (r.kind === 'hasMany') {
         attrs[name] = hasMany(r.type, r.options);
       }
-    });
+    }
 
     Models[modelName] = Model.extend(attrs);
   });
