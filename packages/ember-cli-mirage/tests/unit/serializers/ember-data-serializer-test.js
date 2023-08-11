@@ -3,7 +3,7 @@ import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 import { Model, hasMany, belongsTo } from 'miragejs';
 import { createServer } from 'miragejs';
-import { EmberDataSerializer } from 'ember-cli-mirage';
+import { EmberDataSerializer } from '@pgengler/ember-cli-mirage';
 
 module('Unit | Serializer | ember data serializer', function (hooks) {
   setupTest(hooks);

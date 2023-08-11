@@ -1,13 +1,13 @@
 import {
   discoverEmberDataModels,
   // applyEmberDataSerializers,
-} from 'ember-cli-mirage';
+} from '@pgengler/ember-cli-mirage';
 
-export default function (config) {
+export default function (config, owner) {
   let finalConfig = {
     ...config,
     // Remove discoverEmberDataModels if you do not want ember-cli-mirage to auto discover the ember models
-    models: { ...discoverEmberDataModels(), ...config.models },
+    models: { ...discoverEmberDataModels(owner), ...config.models },
     // uncomment to opt into ember-cli-mirage to auto discover ember serializers
     // serializers: applyEmberDataSerializers(config.serializers),
     routes,

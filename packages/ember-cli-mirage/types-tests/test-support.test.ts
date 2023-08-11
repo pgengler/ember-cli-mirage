@@ -1,4 +1,4 @@
-import { setupMirage } from 'ember-cli-mirage/test-support';
+import { setupMirage } from '@pgengler/ember-cli-mirage/test-support';
 import { module } from 'qunit';
 
 // Mocha-style usage

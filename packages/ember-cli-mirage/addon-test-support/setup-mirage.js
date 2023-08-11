@@ -1,4 +1,4 @@
-import startMirage from 'ember-cli-mirage/start-mirage';
+import startMirage from '@pgengler/ember-cli-mirage/start-mirage';
 import { settled } from '@ember/test-helpers';
 
 /**

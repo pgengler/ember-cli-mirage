@@ -1,6 +1,6 @@
 import ENV from '../config/environment';
-import getRfc232TestContext from 'ember-cli-mirage/get-rfc232-test-context';
-import startMirageImpl from 'ember-cli-mirage/start-mirage';
+import getRfc232TestContext from '@pgengler/ember-cli-mirage/get-rfc232-test-context';
+import startMirageImpl from '@pgengler/ember-cli-mirage/start-mirage';
 import * as config from '../mirage/config';
 const { default: makeServer } = config;
 
@@ -14,7 +14,7 @@ const { default: makeServer } = config;
 //    tests.
 //
 export default {
-  name: 'ember-cli-mirage',
+  name: '@pgengler/ember-cli-mirage',
   initialize(application) {
     if (makeServer) {
       application.register('mirage:make-server', makeServer, {

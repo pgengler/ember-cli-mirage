@@ -3,9 +3,9 @@
 import require from 'require';
 import config from 'ember-get-config';
 import assert from './assert';
-import { hasEmberData, isDsModel } from 'ember-cli-mirage/utils/ember-data';
+import { hasEmberData, isDsModel } from '@pgengler/ember-cli-mirage/utils/ember-data';
 import { Model, belongsTo, hasMany } from 'miragejs';
-import EmberDataSerializer from 'ember-cli-mirage/serializers/ember-data-serializer';
+import EmberDataSerializer from '@pgengler/ember-cli-mirage/serializers/ember-data-serializer';
 import { _utilsInflectorCamelize as camelize } from 'miragejs';
 
 const { modulePrefix, podModulePrefix } = config;
